@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Medigo Blue, Blog</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,900,800,700,500,200,100,600" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="css/misc.css">
+    <link rel="stylesheet" href="css/blue-scheme.css">
+	<link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css" rel="stylesheet" />
+	<link href="path/to/lightbox.css" rel="stylesheet" />
+
+	<!-- Smooth Scrolling -->
+    <style>
+		html {
+   			 scroll-behavior: smooth;
+		}
+
+		/* Sidebar widget sticky on scroll */
+		.sidebar-widget {
+			position: sticky;
+			top: 100px; /* Adjust this value to move the sidebar lower */
+			padding-top: 30px; /* Optional padding for the top */
+			margin-top: 120px; /* This gives it a little margin at the top before sticking */
+			width: 100%; /* Full width of its parent column */
+			background-color: #fff; /* Background color for clarity */
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for the sidebar */
+			padding: 20px;
+			border-radius: 8px; /* Optional rounded corners */
+			z-index: 10; /* Ensure it's on top of other elements */
+		}
+
+		/* Blog card container adjustments */
+		.blog-posts-container {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+			gap: 20px; /* Spacing between cards */
+			padding: 20px;
+		}
+
+		/* Ensuring that all cards are the same size */
+		.post-blog-card {
+			display: flex;
+			flex-direction: column;
+			height: 100%; /* Make sure all cards have the same height */
+			border: 1px solid #ddd; /* Add border around each card */
+			border-radius: 10px; /* Optional: rounded corners */
+			overflow: hidden; /* Ensures no content overflows */
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+		}
+
+		.blog-card {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			height: 100%; /* Makes sure the card uses the full height */
+		}
+
+		.blog-image img {
+			width: 100%;
+			height: auto;
+			max-width: 100%;
+			object-fit: cover;
+		}
+
+		/* Equalize card content height */
+		.blog-card-content {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding: 15px;
+			flex-grow: 1;
+		}
+
+		.blog-card-content h3 {
+			margin-bottom: 15px; /* Space below the title */
+		}
+
+		/* Adjust spacing on smaller screens */
+		@media (max-width: 768px) {
+			.blog-posts-container {
+				grid-template-columns: 1fr 1fr; /* Two cards per row */
+			}
+		}
+
+		@media (max-width: 480px) {
+			.blog-posts-container {
+				grid-template-columns: 1fr; /* One card per row on small screens */
+			}
+		}
+
+		/* Styling for the "More Photos" button */
+		.more-photos {
+			text-align: center;
+			margin-top: 30px;
+		}
+
+		.more-photos a {
+			text-decoration: none;
+			font-size: 18px;
+			color: #007bff;
+		}
+
+		/* Gallery adjustments */
+		.gallery {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr); /* Make a 2-column layout */
+			gap: 10px;
+		}
+
+		.gallery a {
+			display: block;
+			position: relative;
+		}
+
+		.gallery img {
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+			border-radius: 10px;
+		}
+
+		/* Adjustments for the "More Photos" container */
+		.more-photos {
+			text-align: center;
+			margin-top: 30px;
+		}
+
+		.more-photos a {
+			font-size: 18px;
+			color: #007bff;
+		}
+
+
+		
+    </style>
+    
+    <!-- JavaScripts -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery-migrate-1.2.1.min.js"></script>
+
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <!-- Responsive Menu -->
+    <div class="responsive_menu">
+        <ul class="main_menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Blog</a>
+                <ul> <!-- Update this -->
+					<li class="nav-item"><a class="nav-link" href="#week-1">Week 1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#week-2">Week 2</a></li>
+					<li class="nav-item"><a class="nav-link" href="#week-3">Week 3</a></li>
+					<li class="nav-item"><a class="nav-link" href="#week-4">Week 4</a></li>
+					<li class="nav-item"><a class="nav-link" href="#week-5">Week 5</a></li>
+					<li class="nav-item"><a class="nav-link" href="#week-6">Week 6</a></li>
+					<li class="nav-item"><a class="nav-link" href="#week-7">Week 7</a></li>
+					<li class="nav-item"><a class="nav-link" href="#week-8">Week 8</a></li>
+					<li class="nav-item"><a class="nav-link" href="#week-9">Week 9</a></li>
+					<li class="nav-item"><a class="nav-link" href="#week-10">Week 10</a></li>
+					<li class="nav-item"><a class="nav-link" href="#week-11">Week 11</a></li>
+					<li class="nav-item"><a class="nav-link" href="#week-12">Week 12</a></li>
+				</ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <header class="site-header clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pull-left logo">
+                        <a href="index.html"><img src="images/logo.png" alt="Medigo"></a>
+                    </div>
+
+                    <div class="main-navigation pull-right">
+                        <nav class="main-nav visible-md visible-lg">
+                            <ul class="sf-menu">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="#">Blog</a> <!-- Update this -->
+									<ul>
+										<li class="nav-item"><a class="nav-link" href="#week-1">Week 1</a></li>
+										<li class="nav-item"><a class="nav-link" href="#week-2">Week 2</a></li>
+										<li class="nav-item"><a class="nav-link" href="#week-3">Week 3</a></li>
+										<li class="nav-item"><a class="nav-link" href="#week-4">Week 4</a></li>
+										<li class="nav-item"><a class="nav-link" href="#week-5">Week 5</a></li>
+										<li class="nav-item"><a class="nav-link" href="#week-6">Week 6</a></li>
+										<li class="nav-item"><a class="nav-link" href="#week-7">Week 7</a></li>
+										<li class="nav-item"><a class="nav-link" href="#week-8">Week 8</a></li>
+										<li class="nav-item"><a class="nav-link" href="#week-9">Week 9</a></li>
+										<li class="nav-item"><a class="nav-link" href="#week-10">Week 10</a></li>
+										<li class="nav-item"><a class="nav-link" href="#week-11">Week 11</a></li>
+										<li class="nav-item"><a class="nav-link" href="#week-12">Week 12</a></li>
+									</ul>
+								</li>
+								<li><a href="contact.html">Contact</a></li>
+							</ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="first-widget parallax" id="blog">
+        <div class="parallax-overlay">
+            <div class="container pageTitle">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <h2 class="page-title">Blog</h2>
+                    </div>
+                    <div class="col-md-6 col-sm-6 text-right">
+                        <span class="page-location">Home / Blog</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">    
+        <div class="row">
+            <div class="col-md-8 blog-posts">
+                <div class="row">
+                    <div class="col-md-12">
+                    </div>
+
+                    <div id="blog-posts">
+						<!-- Week 1 -->
+						<div class="main-content">
+							<!-- Blog Cards Container -->
+							<div class="blog-posts-container">
+								<!-- Week 1 -->
+								<div class="post-blog-card" id="week-1">
+									<div class="blog-card">
+										<div class="blog-image" id="image-week-1">
+											<img src="images/includes/blog1.jpg" alt="Week 1 Blog Image" class="img-fluid" style="max-width: auto; height: auto;">
+										</div>
+										<div class="blog-card-content">
+											<span class="meta-date">SDO Sorsogon</span>
+											<span class="meta-author">Week 1</span>
+											<h3>Getting Acquainted at DepEd Sorsogon</h3>
+											<p class="light-text">We spent the first week learning our assigned schools and familiarizing ourselves with the tasks ahead.</p>
+											<button class="continue-btn" onclick="toggleBlogContent('week-1')">Continue Reading...</button>
+											<div class="full-content" id="week-1-content" style="display:none;">
+												<p>During the first week of our OJT at the Department of Education (DepEd) Schools Division of Sorsogon, we were assigned to various branches of the office, where we learned about the specific roles and responsibilities of each department. Our tasks included hands-on activities such as encoding, understanding the basics of LAN cabling, and other fundamental IT-related duties to get familiar with the office's technological needs and workflow. This week set the foundation for our learning experience throughout the internship.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+						
+								<!-- Week 2 -->
+								<div class="post-blog-card" id="week-2">
+									<div class="blog-card">
+										<div class="blog-image" id="image-week-2">
+											<img src="images/includes/blog2.jpg" alt="Week 2 Blog Image" class="img-fluid" style="max-width: auto; height: auto;">
+										</div>
+										<div class="blog-card-content">
+											<span class="meta-date">SDO Sorsogon</span>
+											<span class="meta-author">Week 2</span>
+											<h3>Website Updates and Content Management</h3>
+											<p class="light-text">Focusing on redesigning the website using WordPress and updating key content like memos, issuances, and special orders.</p>
+											<button class="continue-btn" onclick="toggleBlogContent('week-2')">Continue Reading...</button>
+											<div class="full-content" id="week-2-content" style="display:none;">
+												<p>During Week 2 of our OJT at DepEd Sorsogon, we worked on redesigning the official website using WordPress, enhancing its layout and user experience. Our tasks also involved updating various content, including memos, issuances, special orders, and other important documents. This hands-on experience allowed us to apply our web design skills and learn how to manage and maintain official online content, contributing to the accessibility and functionality of the website for the community.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+						
+								<!-- Week 3 -->
+								<div class="post-blog-card" id="week-3">
+									<div class="blog-card">
+										<div class="blog-image" id="image-week-3">
+											<img src="images/includes/blog3.jpg" alt="Week 3 Blog Image" class="img-fluid" style="max-width: auto; height: auto;">
+										</div>
+										<div class="blog-card-content">
+											<span class="meta-date">SDO Sorsogon</span>
+											<span class="meta-author">Week 3</span>
+											<h3>Website Maintenance and Acquaintance Party Performance</h3>
+											<p class="light-text">In our final week at DepEd Sorsogon, we continued updating the website and its content, while I also performed as a guitarist at The Lewis College acquaintance party.</p>
+											<button class="continue-btn" onclick="toggleBlogContent('week-3')">Continue Reading...</button>
+											<div class="full-content" id="week-3-content" style="display:none;">
+												<p>During the final week of my OJT at DepEd Sorsogon, we continued updating and maintaining the website, ensuring that key documents and content were current. In addition to our technical tasks, I had the opportunity to perform as a guitarist at The Lewis College acquaintance party, showcasing my musical skills while engaging with fellow students and staff. This week was a blend of both professional development and personal enjoyment, marking the conclusion of my internship experience in SDO Sorsogon.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+						
+								<!-- Week 4 -->
+								<div class="post-blog-card" id="week-4">
+									<div class="blog-card">
+										<div class="blog-image" id="image-week-4">
+											<img src="images/includes/blog4.jpeg" alt="Week 4 Blog Image" class="img-fluid" style="max-width: auto; height: auto;">
+										</div>
+										<div class="blog-card-content">
+											<span class="meta-date">Sorsogon East Central School</span>
+											<span class="meta-author">Week 4</span>
+											<h3>IT Support and Performing Arts Judging</h3>
+											<p class="light-text">We transferred to Sorsogon East Central School (SECS), where we focused on IT tasks, and I also judged the performing arts auditions at The Lewis College.</p>
+											<button class="continue-btn" onclick="toggleBlogContent('week-4')">Continue Reading...</button>
+											<div class="full-content" id="week-4-content" style="display:none;">
+												<p>We transitioned to Sorsogon East Central School (SECS), where we were briefed on our new tasks, which included fixing computers, laptops, printers, encoding data, and handling LAN cabling. This week also saw me stepping into a different role as one of the judges for The Lewis College's performing arts auditions, blending my technical skills with a creative involvement in the school’s activities. It was a dynamic week of both IT troubleshooting and contributing to the college's vibrant cultural events.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+						
+								<!-- Week 5 -->
+								<div class="post-blog-card" id="week-5">
+									<div class="blog-card">
+										<div class="blog-image" id="image-week-5">
+											<img src="images/includes/blog5.jpg" alt="Week 5 Blog Image" class="img-fluid" style="max-width: auto; height: auto;">
+										</div>
+										<div class="blog-card-content">
+											<span class="meta-date">Sorsogon East Central School</span>
+											<span class="meta-author">Week 5</span>
+											<h3>LAN Cabling and Network Setup</h3>
+											<p class="light-text">We replaced and managed all LAN cables at SECS, and I was responsible for setting up the school’s network.</p>
+											<button class="continue-btn" onclick="toggleBlogContent('week-5')">Continue Reading...</button>
+											<div class="full-content" id="week-5-content" style="display:none;">
+												<p>During Week 5 of our OJT at SECS, we focused on replacing and managing the LAN cables for all the computers in the school. We organized and tidied up the cables to ensure a cleaner, safer, and more efficient setup. Additionally, I was tasked with setting up the school's network, ensuring proper connectivity across all devices. This week provided hands-on experience with network infrastructure and reinforced the importance of well-maintained systems for smooth IT operations.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+						
+								<!-- Week 6 -->
+								<div class="post-blog-card" id="week-6">
+									<div class="blog-card">
+										<div class="blog-image" id="image-week-6">
+											<img src="images/includes/blog6.jpg" alt="Week 6 Blog Image" class="img-fluid" style="max-width: auto; height: auto;">
+										</div>
+										<div class="blog-card-content">
+											<span class="meta-date">Sorsogon East Central School</span>
+											<span class="meta-author">Week 6</span>
+											<h3>Student Reading Profiling and Distribution</h3>
+											<p class="light-text">I created reading profiles for students from kindergarten to grade 6 using Excel, and distributed the printed profiles to each classroom.</p>
+											<button class="continue-btn" onclick="toggleBlogContent('week-6')">Continue Reading...</button>
+											<div class="full-content" id="week-6-content" style="display:none;">
+												<p>I was assigned the task of creating reading profiles for all students from Kindergarten to Grade 6. Using Excel, I organized the data and generated the profiles, which were then printed out. My responsibility also included distributing the printed profiles to every classroom, ensuring that each teacher had the necessary information to support their students' learning needs. This task enhanced my data management skills and taught me about the importance of accurate record-keeping in the educational process.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+						
+								<!-- Week 7 -->
+								<div class="post-blog-card" id="week-7">
+									<div class="blog-card">
+										<div class="blog-image" id="image-week-7">
+											<img src="images/includes/blog7.jpg" alt="Week 7 Blog Image" class="img-fluid" style="max-width: auto; height: auto;">
+										</div>
+										<div class="blog-card-content">
+											<span class="meta-date">Sorsogon East Central School</span>
+											<span class="meta-author">Week 7</span>
+											<h3> Network Maintenance and LAN Connection Fixes</h3>
+											<p class="light-text">I performed maintenance work on the network and fixed LAN connections for computers that were not receiving internet access.</p>
+											<button class="continue-btn" onclick="toggleBlogContent('week-7')">Continue Reading...</button>
+											<div class="full-content" id="week-7-content" style="display:none;">
+												<p>I focused on network maintenance to resolve issues with LAN connections. Some computers were experiencing connectivity problems and had no internet access. I was tasked with troubleshooting and resetting up the connections to restore proper network functionality. This week allowed me to refine my problem-solving and technical skills, ensuring that the school's IT systems were running smoothly and efficiently for both staff and students.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+						
+								<!-- Week 8 -->
+								<div class="post-blog-card" id="week-8">
+									<div class="blog-card">
+										<div class="blog-image" id="image-week-8">
+											<img src="images/includes/blog8.jpg" alt="Week 8 Blog Image" class="img-fluid" style="max-width: auto; height: auto;">
+										</div>
+										<div class="blog-card-content">
+											<span class="meta-date">Sorsogon East Central School</span>
+											<span class="meta-author">Week 8</span>
+											<h3>Teacher’s Conference Support and IT Maintenance</h3>
+											<p class="light-text">We provided IT support for a teacher's conference, ensuring the projector worked properly, creating presentation slides, and handling other technical tasks.</p>
+											<button class="continue-btn" onclick="toggleBlogContent('week-8')">Continue Reading...</button>
+											<div class="full-content" id="week-8-content" style="display:none;">
+												<p>We were invited to provide IT support for a teacher's conference. Our tasks included ensuring the projector worked smoothly, preparing the presentation slides, and handling any other IT-related needs during the event. I was responsible for making sure everything ran without technical issues, from equipment setup to troubleshooting on the spot. This experience gave me valuable insight into event coordination from a tech perspective, enhancing my skills in IT support for live events.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+						
+								<!-- Week 9 -->
+								<div class="post-blog-card" id="week-9">
+									<div class="blog-card">
+										<div class="blog-image" id="image-week-9">
+											<img src="images/includes/blog9.jpg" alt="Week 9 Blog Image" class="img-fluid" style="max-width: auto; height: auto;">
+										</div>
+										<div class="blog-card-content">
+											<span class="meta-date">Sorsogon East Central School</span>
+											<span class="meta-author">Week 9</span>
+											<h3>Ongoing IT Maintenance and Support</h3>
+											<p class="light-text">In Week 9, we continued with regular maintenance work, troubleshooting issues, and ensuring the smooth operation of the school's IT systems.</p>
+											<button class="continue-btn" onclick="toggleBlogContent('week-9')">Continue Reading...</button>
+											<div class="full-content" id="week-9-content" style="display:none;">
+												<p>I was involved in routine maintenance work across the school's IT systems. This included troubleshooting hardware and software issues, ensuring all computers were functional, and verifying that network connections were stable. We also conducted preventive maintenance, checking and cleaning devices to minimize future problems. This week focused on maintaining the overall functionality of the school's IT infrastructure, ensuring that both staff and students had reliable access to the technology they needed for daily activities.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Week 10 -->
+								<div class="post-blog-card" id="week-10">
+									<div class="blog-card">
+										<div class="blog-image" id="image-week-10">
+											<img src="images/includes/blog10.jpg" alt="Week 10 Blog Image" class="img-fluid" style="max-width: auto; height: auto;">
+										</div>
+										<div class="blog-card-content">
+											<span class="meta-date">Sorsogon East Central School</span>
+											<span class="meta-author">Week 10</span>
+											<h3>System Finalization and Pre-Oral Defense Preparation</h3>
+											<p class="light-text">Finalizing our system and documents in preparation for the upcoming pre-oral defense, while continuing with maintenance work.</p>
+											<button class="continue-btn" onclick="toggleBlogContent('week-10')">Continue Reading...</button>
+											<div class="full-content" id="week-10-content" style="display:none;">
+												<p>Continuing with regular maintenance work on the school’s IT systems, ensuring everything was functioning smoothly. This week also marked an important milestone as we met with our advisers to finalize our system and documents in preparation for the upcoming pre-oral defense. We reviewed and polished our work, making sure everything was ready for presentation. This combination of technical maintenance and academic preparation helped us stay on track for both our internship and academic goals.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Week 11 -->
+								<div class="post-blog-card" id="week-11">
+									<div class="blog-card">
+										<div class="blog-image" id="image-week-11">
+											<img src="images/includes/blog11.jpg" alt="Week 11 Blog Image" class="img-fluid" style="max-width: auto; height: auto;">
+										</div>
+										<div class="blog-card-content">
+											<span class="meta-date">Sorsogon East Central School</span>
+											<span class="meta-author">Week 11</span>
+											<h3>UPS and AVR Replacement, New Computer Setup</h3>
+											<p class="light-text">I checked the storage room for working UPS and AVR units to replace the old ones and set up new computers for the school.</p>
+											<button class="continue-btn" onclick="toggleBlogContent('week-11')">Continue Reading...</button>
+											<div class="full-content" id="week-11-content" style="display:none;">
+												<p>I was tasked with checking the storage room for any working UPS (Uninterruptible Power Supply) or AVR (Automatic Voltage Regulator) units to replace the outdated ones. After locating the replacements, I ensured they were properly installed to improve the power management and protection of the school’s IT equipment. Additionally, I was responsible for setting up new computers, ensuring they were configured and ready for use by the staff and students. This week focused on upgrading and maintaining the school’s IT infrastructure for better performance and reliability.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Week 12 -->
+								<div class="post-blog-card" id="week-12">
+									<div class="blog-card">
+										<div class="blog-image" id="image-week-12">
+											<img src="images/includes/blog12.jpg" alt="Week 12 Blog Image" class="img-fluid" style="max-width: auto; height: auto;">
+										</div>
+										<div class="blog-card-content">
+											<span class="meta-date">Sorsogon East Central School</span>
+											<span class="meta-author">Week 12</span>
+											<h3>Printer Maintenance and Final Troubleshooting</h3>
+											<p class="light-text">The final week of our OJT, we focused on fixing and troubleshooting printers, performing cleaning, and conducting deep maintenance tasks.</p>
+											<button class="continue-btn" onclick="toggleBlogContent('week-12')">Continue Reading...</button>
+											<div class="full-content" id="week-12-content" style="display:none;">
+												<p>During the last week of my OJT at Sorsogon East Central School (SECS), we were assigned to perform maintenance on the printers throughout the school. This involved troubleshooting any issues, fixing malfunctions, and ensuring that all printers were running smoothly. We also carried out routine cleaning and deep cleaning tasks to maintain the machines' longevity and efficiency. This week was a hands-on conclusion to our technical duties, ensuring the school's equipment was fully operational as we wrapped up our internship.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+							
+						</div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+				<!-- Sidebar -->
+				<div class="sidebar-widget">
+					<h5 class="widget-title">More Photos</h5>
+					<div class="gallery">
+						<a href="images/includes/slide1.jpg" data-lightbox="gallery" data-title="Blog Image 1">
+							<img src="images/includes/slide1.jpg" alt="Blog Image 1" class="img-fluid">
+						</a>
+						<a href="images/includes/slide2.jpg" data-lightbox="gallery" data-title="Blog Image 2">
+							<img src="images/includes/slide2.jpg" alt="Blog Image 2" class="img-fluid">
+						</a>
+						<a href="images/includes/slide3.jpg" data-lightbox="gallery" data-title="Blog Image 3">
+							<img src="images/includes/slide3.jpg" alt="Blog Image 3" class="img-fluid">
+						</a>
+						<a href="images/includes/slide4.jpg" data-lightbox="gallery" data-title="Blog Image 4">
+							<img src="images/includes/slide4.jpg" alt="Blog Image 4" class="img-fluid">
+						</a>
+						<a href="images/includes/slide5.jpg" data-lightbox="gallery" data-title="Blog Image 4">
+							<img src="images/includes/slide5.jpg" alt="Blog Image 4" class="img-fluid">
+						</a>
+						<a href="images/includes/slide6.jpg" data-lightbox="gallery" data-title="Blog Image 4">
+							<img src="images/includes/slide6.jpg" alt="Blog Image 4" class="img-fluid">
+						</a>
+						<a href="images/includes/slide7.jpg" data-lightbox="gallery" data-title="Blog Image 4">
+							<img src="images/includes/slide7.jpg" alt="Blog Image 4" class="img-fluid">
+						</a>
+						<a href="images/includes/slide8.jpg" data-lightbox="gallery" data-title="Blog Image 4">
+							<img src="images/includes/slide8.jpg" alt="Blog Image 4" class="img-fluid">
+						</a>
+					</div>
+				</div>                                 
+			</div>
+			
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="footer-nav clearfix">
+                        <ul class="footer-menu">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="blog.html">Blog Posts</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/min/plugins.min.js"></script>
+    <script src="js/min/medigo-custom.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox-plus-jquery.min.js"></script>
+	<script src="path/to/lightbox.js"></script>
+
+	<script>
+		lightbox.option({
+		  'resizeDuration': 200,
+		  'wrapAround': true
+		});
+	  </script>
+
+    <script>
+		// Dropdown selection handling
+		document.getElementById('week-dropdown').addEventListener('change', function () {
+			var selectedWeek = this.value;
+			var weeks = ['week-1', 'week-2', 'week-3', 'week-4', 'week-5', 'week-6', 'week-7', 'week-8', 'week-9', 'week-10', 'week-11', 'week-12'];
+	
+			// Hide all blog posts
+			weeks.forEach(function(week) {
+				document.getElementById(week).style.display = 'none';
+			});
+	
+			// Show the selected week blog post
+			var selectedBlog = document.getElementById(selectedWeek);
+			selectedBlog.style.display = 'block';
+			
+			// Scroll to the image of the selected week (just the image, not the entire content)
+			var selectedImage = document.getElementById('image-' + selectedWeek); // This targets the image ID
+			selectedImage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		});
+	
+		// Toggle blog content visibility
+		function toggleBlogContent(weekId) {
+			var content = document.getElementById(weekId + '-content');
+			if (content.style.display === 'none') {
+				content.style.display = 'block';
+			} else {
+				content.style.display = 'none';
+			}
+		}
+	</script>
+	
+	
+</body>
+</html>
