@@ -563,6 +563,20 @@
 			}
 		}
 	</script>
+	<script>
+	    function toggleBlogContent(weekId) {
+	        var content = document.getElementById(weekId + '-content');
+	        var button = document.querySelector(`#${weekId} .continue-btn`);
+	
+	        if (content.style.display === "none") {
+	            content.style.display = "block";
+	            button.textContent = "See Less"; // Change text to "See Less"
+	        } else {
+	            content.style.display = "none";
+	            button.textContent = "See More"; // Change text back to "See More"
+	        }
+	    }
+	</script>
 	
 	
 </body>
